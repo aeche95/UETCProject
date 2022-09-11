@@ -1,0 +1,14 @@
+{
+	"FileVersion": 3,
+	"EngineAssociation": "4.27",
+	"Category": "",
+	"Description": "",
+	"Modules": [
+		{
+			"Name": "UETC_Proyecto_Final",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		}
+	]
+}
+
