@@ -7,8 +7,10 @@
 		{
 			"Name": "UETC_Proyecto_Final",
 			"Type": "Runtime",
-			"LoadingPhase": "Default"
+			"LoadingPhase": "Default",
+			"AdditionalDependencies": [
+				"Engine"
+			]
 		}
 	]
 }
-
