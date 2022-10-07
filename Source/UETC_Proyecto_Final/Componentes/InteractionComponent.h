@@ -6,6 +6,8 @@
 #include "Components/BoxComponent.h"
 #include "InteractionComponent.generated.h"
 
+class IInteractableInterfaz;
+class ABasePickup;
 /**
  * 
  */
@@ -16,18 +18,20 @@ class UETC_PROYECTO_FINAL_API UInteractionComponent : public UBoxComponent
 	
 public:
 
-	UInteractionComponent();
+	/*UInteractionComponent();*/
 
-	void BeginPlay();
-
+	/*void BeginPlay();*/
+	UFUNCTION()
 	void OnObjectEnter(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
+	
+	UFUNCTION()
 	void OnObjectExit(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
 
 	UFUNCTION(BlueprintCallable)
-	AActor* GetMejorObjeto();
+	ABasePickup* GetMejorObjeto();
 
 private:
 
 	UPROPERTY(VisibleAnywhere,BlueprintReadOnly, meta=(AllowPrivateAccess=true))
-	TArray<AActor*> OverlappedInteractables;
+	TArray<ABasePickup*> OverlappedInteractables;
 };

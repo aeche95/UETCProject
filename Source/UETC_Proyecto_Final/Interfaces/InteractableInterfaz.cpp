@@ -4,3 +4,4 @@
 #include "InteractableInterfaz.h"
 
 // Add default functionality here for any IInteractableInterfaz functions that are not pure virtual.
+

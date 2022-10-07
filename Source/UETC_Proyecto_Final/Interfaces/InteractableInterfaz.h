@@ -7,7 +7,7 @@
 #include "InteractableInterfaz.generated.h"
 
 // This class does not need to be modified.
-UINTERFACE(MinimalAPI)
+UINTERFACE(MinimalAPI,Blueprintable)
 class UInteractableInterfaz : public UInterface
 {
 	GENERATED_BODY()
@@ -23,7 +23,11 @@ class UETC_PROYECTO_FINAL_API IInteractableInterfaz
 	// Add interface functions to this class. This is the class that will be inherited to implement this interface.
 public:
 
-	uint32 GetPrioridad();
+	UFUNCTION(BlueprintCallable,BlueprintImplementableEvent,Category="Interaction")
+	int32 GetPrioridad();
 
-	void Interactuar();
+	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent, Category = "Interaction")
+	bool Interactuar();
+
+	
 };
