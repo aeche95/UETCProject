@@ -2,7 +2,7 @@
 
 
 #include "InteractionComponent.h"
-#include "UETC_Proyecto_Final/Actores/BasePickup.h"
+#include "UETC_Proyecto_Final/Actores/BaseInteractable.h"
 #include "UETC_Proyecto_Final/Interfaces/InteractableInterfaz.h"
 
 //UInteractionComponent::UInteractionComponent()
@@ -17,7 +17,7 @@
 
 void UInteractionComponent::OnObjectEnter(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
-	ABasePickup* Obj = Cast<ABasePickup>(OtherActor);
+	ABaseInteractable* Obj = Cast<ABaseInteractable>(OtherActor);
 	if (Obj)
 	{
 		OverlappedInteractables.AddUnique(Obj);
@@ -28,18 +28,18 @@ void UInteractionComponent::OnObjectEnter(UPrimitiveComponent* OverlappedCompone
 
 void UInteractionComponent::OnObjectExit(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
 {
-	ABasePickup* Obj = Cast<ABasePickup>(OtherActor);
+	ABaseInteractable* Obj = Cast<ABaseInteractable>(OtherActor);
 	if (OverlappedInteractables.Contains(Obj))
 	{
 		OverlappedInteractables.Remove(Obj);
 	}
 }
 
-ABasePickup* UInteractionComponent::GetMejorObjeto()
+ABaseInteractable* UInteractionComponent::GetMejorInteraccion()
 {
-	ABasePickup* MejorObjeto = nullptr;
+	ABaseInteractable* MejorObjeto = nullptr;
 	int32 MayorPrioridad = 0;
-	for (ABasePickup* A : OverlappedInteractables)
+	for (ABaseInteractable* A : OverlappedInteractables)
 	{
 		if (IInteractableInterfaz::Execute_GetPrioridad(A) > MayorPrioridad)
 			{

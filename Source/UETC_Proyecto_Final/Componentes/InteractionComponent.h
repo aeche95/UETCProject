@@ -7,7 +7,7 @@
 #include "InteractionComponent.generated.h"
 
 class IInteractableInterfaz;
-class ABasePickup;
+class ABaseInteractable;
 /**
  * 
  */
@@ -28,10 +28,10 @@ public:
 	void OnObjectExit(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
 
 	UFUNCTION(BlueprintCallable)
-	ABasePickup* GetMejorObjeto();
+	ABaseInteractable* GetMejorInteraccion();
 
 private:
 
 	UPROPERTY(VisibleAnywhere,BlueprintReadOnly, meta=(AllowPrivateAccess=true))
-	TArray<ABasePickup*> OverlappedInteractables;
+	TArray<ABaseInteractable*> OverlappedInteractables;
 };

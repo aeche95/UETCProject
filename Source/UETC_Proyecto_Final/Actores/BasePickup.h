@@ -3,13 +3,12 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Engine/StaticMeshActor.h"
-#include "UETC_Proyecto_Final/Interfaces/InteractableInterfaz.h"
+#include "BaseInteractable.h"
 #include "BasePickup.generated.h"
 
 
 UCLASS()
-class UETC_PROYECTO_FINAL_API ABasePickup : public AStaticMeshActor, public IInteractableInterfaz
+class UETC_PROYECTO_FINAL_API ABasePickup : public ABaseInteractable
 {
 	GENERATED_BODY()
 	
@@ -24,8 +23,5 @@ protected:
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
-
-	UPROPERTY(EditAnywhere,BlueprintReadWrite)
-	int32 Prioridad = 1;
 
 };
