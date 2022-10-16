@@ -8,6 +8,7 @@
 #include "GameFramework/CharacterMovementComponent.h"
 #include "GameFramework/Controller.h"
 #include "GameFramework/SpringArmComponent.h"
+#include "UETC_Proyecto_Final/Componentes/InteractionComponent.h"
 
 //////////////////////////////////////////////////////////////////////////
 // AUETC_Proyecto_FinalCharacter
@@ -45,6 +46,17 @@ AUETC_Proyecto_FinalCharacter::AUETC_Proyecto_FinalCharacter()
 
 	// Note: The skeletal mesh and anim blueprint references on the Mesh component (inherited from Character) 
 	// are set in the derived blueprint asset named MyCharacter (to avoid direct content references in C++)
+
+	Interaccion = CreateDefaultSubobject<UInteractionComponent>(TEXT("Interaccion"));
+	Interaccion->SetupAttachment(RootComponent);
+
+}
+
+void AUETC_Proyecto_FinalCharacter::BeginPlay()
+{
+	Super::BeginPlay();
+	Interaccion->OnComponentBeginOverlap.AddDynamic(this, &AUETC_Proyecto_FinalCharacter::OnObjectEnter);
+	Interaccion->OnComponentEndOverlap.AddDynamic(this, &AUETC_Proyecto_FinalCharacter::OnObjectExit);
 }
 
 //////////////////////////////////////////////////////////////////////////
@@ -75,6 +87,17 @@ void AUETC_Proyecto_FinalCharacter::SetupPlayerInputComponent(class UInputCompon
 	// VR headset functionality
 	PlayerInputComponent->BindAction("ResetVR", IE_Pressed, this, &AUETC_Proyecto_FinalCharacter::OnResetVR);
 }
+
+void AUETC_Proyecto_FinalCharacter::OnObjectEnter(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
+{
+	Interaccion->OnObjectEnter(OverlappedComponent, OtherActor, OtherComp, OtherBodyIndex, bFromSweep, SweepResult);
+}
+
+void AUETC_Proyecto_FinalCharacter::OnObjectExit(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
+{
+	Interaccion->OnObjectExit(OverlappedComponent, OtherActor, OtherComp, OtherBodyIndex);
+}
+
 
 
 void AUETC_Proyecto_FinalCharacter::OnResetVR()
