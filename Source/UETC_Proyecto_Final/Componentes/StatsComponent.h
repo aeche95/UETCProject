@@ -6,6 +6,8 @@
 #include "Components/ActorComponent.h"
 #include "StatsComponent.generated.h"
 
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FMuerteDelegate);
+
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class UETC_PROYECTO_FINAL_API UStatsComponent : public UActorComponent
@@ -35,4 +37,6 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Stats")
 	void RecibirDano(float Dano);
 		
+	UPROPERTY(BlueprintAssignable, Category = "Stats")
+	FMuerteDelegate OnDeathDelegate;
 };
