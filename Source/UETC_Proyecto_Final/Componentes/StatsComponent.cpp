@@ -34,8 +34,9 @@ void UStatsComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActor
 
 void UStatsComponent::RecibirDano(float Dano)
 {
-	float NuevaVida = Vida - Dano;
-	if (NuevaVida<=0.f)
+	Vida -= Dano;
+
+	if (Vida<=0.f)
 	{
 		Vida = 0.f;
 		OnDeathDelegate.Broadcast();

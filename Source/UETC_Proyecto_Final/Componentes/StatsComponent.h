@@ -23,10 +23,10 @@ protected:
 	virtual void BeginPlay() override;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category="Stats")
-	float Vida;
+	float Vida = 100.f;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Stats")
-	float VidaMaxima;
+	float VidaMaxima = 100.f;
 
 	UFUNCTION(BlueprintCallable, Category = "Stats")
 	float GetPorcentajeSalud() { return Vida / VidaMaxima; };
