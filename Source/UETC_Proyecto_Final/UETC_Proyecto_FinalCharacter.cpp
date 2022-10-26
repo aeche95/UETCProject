@@ -9,6 +9,8 @@
 #include "GameFramework/Controller.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "UETC_Proyecto_Final/Componentes/InteractionComponent.h"
+#include "UETC_Proyecto_Final/Componentes/Inventario.h"
+
 
 //////////////////////////////////////////////////////////////////////////
 // AUETC_Proyecto_FinalCharacter
@@ -49,6 +51,11 @@ AUETC_Proyecto_FinalCharacter::AUETC_Proyecto_FinalCharacter()
 
 	Interaccion = CreateDefaultSubobject<UInteractionComponent>(TEXT("Interaccion"));
 	Interaccion->SetupAttachment(RootComponent);
+
+	Inventario = CreateDefaultSubobject<UInventario>(TEXT("Inventario"));
+	
+
+
 
 }
 

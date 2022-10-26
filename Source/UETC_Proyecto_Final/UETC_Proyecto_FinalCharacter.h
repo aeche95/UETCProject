@@ -7,6 +7,7 @@
 #include "UETC_Proyecto_FinalCharacter.generated.h"
 
 class UInteractionComponent;
+class UInventario;
 
 UCLASS(config=Game)
 class AUETC_Proyecto_FinalCharacter : public ACharacter
@@ -33,6 +34,9 @@ public:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = Interaction)
 	UInteractionComponent* Interaccion;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = Inventario)
+	UInventario* Inventario;
 
 	void BeginPlay();
 
