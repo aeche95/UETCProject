@@ -29,7 +29,7 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Interaccion")
 	int32 NumeroObjetivo = 0;
 
-	UPROPERTY(BlueprintAssignable, VisibleAnywhere, Category = "Interaccion")
+	UPROPERTY(BlueprintAssignable, BlueprintCallable, VisibleAnywhere, Category = "Interaccion")
 	FProgresoObjetivoDelegate ProgresoDelegate;
 
 };
