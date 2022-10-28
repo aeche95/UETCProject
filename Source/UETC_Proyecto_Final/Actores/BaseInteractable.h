@@ -8,6 +8,8 @@
 #include "UETC_Proyecto_Final/UETCGameTypes.h"
 #include "BaseInteractable.generated.h"
 
+
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FProgresoObjetivoDelegate, int32, Index);
 /**
  * 
  */
@@ -18,9 +20,16 @@ class UETC_PROYECTO_FINAL_API ABaseInteractable : public AStaticMeshActor, publi
 	
 public:
 
-	UPROPERTY(EditAnywhere,BlueprintReadWrite)
+	UPROPERTY(EditAnywhere,BlueprintReadWrite, Category="Interaccion")
 	EUETCTipoDeInteraccion TipoDeInteraccion;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Interaccion")
 	int32 Prioridad = 1;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Interaccion")
+	int32 NumeroObjetivo = 0;
+
+	UPROPERTY(BlueprintAssignable, VisibleAnywhere, Category = "Interaccion")
+	FProgresoObjetivoDelegate ProgresoDelegate;
+
 };

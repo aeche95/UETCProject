@@ -38,7 +38,7 @@ void UInteractionComponent::OnObjectExit(UPrimitiveComponent* OverlappedComponen
 ABaseInteractable* UInteractionComponent::GetMejorInteraccion()
 {
 	ABaseInteractable* MejorObjeto = nullptr;
-	int32 MayorPrioridad = 0;
+	int32 MayorPrioridad = -1;
 	for (ABaseInteractable* A : OverlappedInteractables)
 	{
 		if (IInteractableInterfaz::Execute_GetPrioridad(A) > MayorPrioridad)
