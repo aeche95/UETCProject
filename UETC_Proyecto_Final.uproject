@@ -18,5 +18,12 @@
 			"Name": "ModelingToolsEditorMode",
 			"Enabled": true
 		}
+	],
+	"TargetPlatforms": [
+		"Android",
+		"AllDesktop",
+		"LinuxNoEditor",
+		"LinuxAArch64NoEditor",
+		"WindowsNoEditor"
 	]
 }
