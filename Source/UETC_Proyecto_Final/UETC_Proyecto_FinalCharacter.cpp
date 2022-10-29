@@ -73,9 +73,6 @@ void AUETC_Proyecto_FinalCharacter::SetupPlayerInputComponent(class UInputCompon
 {
 	// Set up gameplay key bindings
 	check(PlayerInputComponent);
-	PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &ACharacter::Jump);
-	PlayerInputComponent->BindAction("Jump", IE_Released, this, &ACharacter::StopJumping);
-
 	PlayerInputComponent->BindAxis("MoveForward", this, &AUETC_Proyecto_FinalCharacter::MoveForward);
 	PlayerInputComponent->BindAxis("MoveRight", this, &AUETC_Proyecto_FinalCharacter::MoveRight);
 
@@ -142,7 +139,7 @@ void AUETC_Proyecto_FinalCharacter::LookUpAtRate(float Rate)
 
 void AUETC_Proyecto_FinalCharacter::MoveForward(float Value)
 {
-	if ((Controller != nullptr) && (Value != 0.0f))
+	if ((Controller != nullptr) && (Value != 0.0f) && bSePuedeMover)
 	{
 		// find out which way is forward
 		const FRotator Rotation = Controller->GetControlRotation();
@@ -156,7 +153,7 @@ void AUETC_Proyecto_FinalCharacter::MoveForward(float Value)
 
 void AUETC_Proyecto_FinalCharacter::MoveRight(float Value)
 {
-	if ( (Controller != nullptr) && (Value != 0.0f) )
+	if ( (Controller != nullptr) && (Value != 0.0f) && bSePuedeMover)
 	{
 		// find out which way is right
 		const FRotator Rotation = Controller->GetControlRotation();
