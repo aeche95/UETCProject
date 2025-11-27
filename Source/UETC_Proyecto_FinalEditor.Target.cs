@@ -8,8 +8,10 @@ public class UETC_Proyecto_FinalEditorTarget : TargetRules
 	public UETC_Proyecto_FinalEditorTarget(TargetInfo Target) : base(Target)
 	{
 		Type = TargetType.Editor;
-		DefaultBuildSettings = BuildSettingsVersion.V2;
-		ExtraModuleNames.Add("UETC_Proyecto_Final");
+		DefaultBuildSettings = BuildSettingsVersion.V5;
+        IncludeOrderVersion = EngineIncludeOrderVersion.Unreal5_5;
+        CppStandard = CppStandardVersion.Cpp20;
+        ExtraModuleNames.Add("UETC_Proyecto_Final");
 	}
 }
 

@@ -23,19 +23,19 @@ protected:
 	virtual void BeginPlay() override;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category="Stats")
-	float Vida = 100.f;
+	float Health = 100.f;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Stats")
-	float VidaMaxima = 100.f;
+	float MaxHealth = 100.f;
 
 	UFUNCTION(BlueprintCallable, Category = "Stats")
-	float GetPorcentajeSalud() { return Vida / VidaMaxima; };
+	float GetHealthNormalized() { return Health / MaxHealth; };
 public:	
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
 	UFUNCTION(BlueprintCallable, Category = "Stats")
-	void RecibirDano(float Dano);
+	void TakeDamage(float Dano);
 		
 	UPROPERTY(BlueprintAssignable, Category = "Stats")
 	FMuerteDelegate OnDeathDelegate;

@@ -32,13 +32,13 @@ void UStatsComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActor
 	// ...
 }
 
-void UStatsComponent::RecibirDano(float Dano)
+void UStatsComponent::TakeDamage(float Damage)
 {
-	Vida -= Dano;
+	Health -= Damage;
 
-	if (Vida<=0.f)
+	if (Health <= 0.f)
 	{
-		Vida = 0.f;
+		Health = 0.f;
 		OnDeathDelegate.Broadcast();
 	}
 }
